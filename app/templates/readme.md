@@ -13,9 +13,9 @@ $ npm install <%= moduleName %>
 ## Usage
 
 ```js
-const <%= camelModuleName %> = require('<%= moduleName %>');
+const <%= camelModuleName %> = require('<%= moduleName %>')
 
-<%= camelModuleName %>('unicorns');
+<%= camelModuleName %>('unicorns')
 //=> 'unicorns & rainbows'
 ```
 
