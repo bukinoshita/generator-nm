@@ -14,7 +14,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "xo && <% if (nyc) { %>nyc <% } %>ava"
+    "test": "xo && ava"
   },
   "files": [
     "index.js"<% if (cli) { %>,
@@ -29,15 +29,21 @@
     "meow": "^3.7.0"
   <% } %>},
   "devDependencies": {
-    "ava": "^0.19.1",<% if (coveralls) { %>
-    "coveralls": "^2.11.12",<% } %><% if (nyc) { %>
-    "nyc": "^10.0.0",<% } %>
-    "xo": "^0.18.2"
-  }<% if (coveralls) { %>,
-  "nyc": {
-    "reporter": [
-      "lcov",
-      "text"
+    "eslint-config-prettier": "^2.3.0",
+    "ava": "^0.19.1",
+    "xo": "^0.18.2",
+    "husky": "^0.14.1",
+    "lint-staged": "^4.0.0",
+    "prettier": "^1.5.2"
+  },
+  "xo": {
+    "extends": ["prettier"]
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run test",
+      "prettier --semi false --single-quote --write",
+      "git add"
     ]
-  }<% } %>
+  }
 }
